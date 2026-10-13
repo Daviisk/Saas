@@ -90,6 +90,8 @@ app.use('/api', rotasDados);
 app.use('/api', rotasFinanceiro);
 app.use('/api', rotasProjetos);
 }
+if (process.env.VERCEL) app.use(express.static(path.join(raiz, 'public')));
+
 // Somente arquivos da interface são públicos; o backend permanece privado.
 const arquivosPublicos = new Set([
   'index.html', 'app.js', 'api.js', 'dom.js', 'tema.js', 'destaque.js',
