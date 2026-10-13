@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leads</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="crm.css">
+  <link rel="stylesheet" href="fechamento.css">
+  <link rel="stylesheet" href="buscar.css">
+  <link rel="stylesheet" href="abordagem.css">
+  <link rel="stylesheet" href="copies.css">
+  <link rel="stylesheet" href="painel.css">
+  <link rel="stylesheet" href="cronometro.css">
+  <link rel="stylesheet" href="disciplina.css">
+  <link rel="stylesheet" href="dados.css">
+  <link rel="stylesheet" href="financeiro.css">
+  <link rel="stylesheet" href="projetos.css">
+  <script src="tema.js"></script>
+  <script src="destaque.js"></script>
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Ir para o conteúdo</a>
+  <div class="app">
+        <header class="topo-mobile">
+      <button type="button" class="botao-menu" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="lateral">
+        <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div class="topo-mobile-marca">
+        <div class="marca-logo">
+<svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.9-4.9"/></svg>
+        </div>
+        <span>Leads</span>
+      </div>
+    </header>
+    <div class="fundo-menu" id="fundo-menu"></div>
+    <aside class="lateral" id="lateral">
+      <div class="marca">
+        <div class="marca-logo">
+<svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.9-4.9"/></svg>
+        </div>
+        <div>
+          <div class="marca-nome">Leads</div>
+          <div class="marca-sub">Weblace</div>
+        </div>
+      </div>
+
+      <nav class="menu" aria-label="Principal">
+        <div class="menu-grupo">Visão geral</div>
+        <a class="menu-item" href="#/painel" data-rota="painel">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15v3M12 9v9M17 5v13"/></svg>
+          Painel
+        </a>
+
+        <div class="menu-grupo">Prospecção</div>
+        <a class="menu-item" href="#/buscar" data-rota="buscar">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          Buscar leads
+        </a>
+        <a class="menu-item" href="#/crm" data-rota="crm">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="5" height="18" rx="1"/><rect x="10" y="3" width="5" height="12" rx="1"/><rect x="17" y="3" width="4" height="8" rx="1"/></svg>
+          CRM
+        </a>
+        <a class="menu-item" href="#/copies" data-rota="copies">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Copies
+        </a>
+
+        <div class="menu-grupo">Rotina</div>
+        <a class="menu-item" href="#/fechamento" data-rota="fechamento">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
+          Fechamento
+        </a>
+        <a class="menu-item" href="#/disciplina" data-rota="disciplina">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Disciplina
+        </a>
+
+        <div class="menu-grupo">Dinheiro</div>
+        <a class="menu-item" href="#/projetos" data-rota="projetos">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          Projetos
+        </a>
+        <a class="menu-item" href="#/financeiro" data-rota="financeiro">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20"/><path d="M17 6.5c0-1.9-2.2-3-5-3s-5 1.1-5 3 2.2 2.8 5 3.5 5 1.6 5 3.5-2.2 3-5 3-5-1.1-5-3"/></svg>
+          Financeiro
+        </a>
+
+        <div class="menu-grupo">Sistema</div>
+        <a class="menu-item" href="#/dados" data-rota="dados">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+          Dados
+        </a>
+      </nav>
+
+      <div class="cronometro" id="cronometro" data-estado="parado" aria-label="Cronômetro de trabalho">
+        <div class="cronometro-topo">
+          <span>Trabalho de hoje</span>
+          <span class="cronometro-estado" id="cronometro-estado">Parado</span>
+        </div>
+        <div class="cronometro-tempo" id="cronometro-tempo">00:00:00</div>
+        <div class="cronometro-botoes">
+          <button class="botao" type="button" id="cron-iniciar">Começar o trabalho</button>
+          <button class="botao-sec" type="button" id="cron-pausar" hidden>Pausar o trabalho</button>
+          <button class="botao-sec" type="button" id="cron-finalizar" hidden>Finalizar trabalho</button>
+        </div>
+        <p class="cronometro-aviso" id="cronometro-aviso" hidden></p>
+      </div>
+
+      <details class="aparencia">
+        <summary>
+          <span class="aparencia-ponto"></span>
+          Cor de destaque
+        </summary>
+        <div class="aparencia-cores">
+          <button type="button" class="amostra-cor" data-cor="vermelho" aria-label="Vermelho" aria-pressed="true"></button>
+          <button type="button" class="amostra-cor" data-cor="laranja" aria-label="Laranja" aria-pressed="false"></button>
+          <button type="button" class="amostra-cor" data-cor="rosa" aria-label="Rosa" aria-pressed="false"></button>
+          <button type="button" class="amostra-cor" data-cor="roxo" aria-label="Roxo" aria-pressed="false"></button>
+          <button type="button" class="amostra-cor" data-cor="azul" aria-label="Azul" aria-pressed="false"></button>
+          <button type="button" class="amostra-cor" data-cor="ciano" aria-label="Ciano" aria-pressed="false"></button>
+          <button type="button" class="amostra-cor" data-cor="verde" aria-label="Verde" aria-pressed="false"></button>
+          <label class="amostra-cor amostra-personalizada" id="cor-personalizada-rotulo" data-ativa="false" title="Cor personalizada">
+            <input type="color" id="cor-personalizada" value="#e5383b" aria-label="Cor personalizada">
+          </label>
+        </div>
+      </details>
+
+      <button class="botao-tema" id="botao-tema" type="button" aria-label="Alternar tema claro e escuro">
+        <svg class="icone icone-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icone icone-lua" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <span>Tema</span>
+      </button>
+    </aside>
+
+    <main class="conteudo" id="conteudo" tabindex="-1">
+
+      <section data-tela="descartados" hidden>
+        <div class="tela-topo">
+          <div>
+            <h1>Descartados e não contatar</h1>
+            <p class="subtitulo">Leads fora do funil e telefones que não devem receber mensagem.</p>
+          </div>
+          <div class="acoes">
+            <a class="botao-sec" href="#/crm">Voltar ao CRM</a>
+          </div>
+        </div>
+
+        <p class="aviso-erro" id="desc-erro" role="alert" hidden></p>
+        <p class="status" id="desc-status"></p>
+
+        <h2 class="titulo-secao">Descartados</h2>
+        <div class="cartao" id="desc-lista"></div>
+
+        <h2 class="titulo-secao">Não contatar</h2>
+        <div class="cartao">
+          <form id="form-nc" class="nc-form">
+            <label class="campo">Telefone
+              <input name="telefone" inputmode="tel" required placeholder="(67) 99999-0000">
+            </label>
+            <label class="campo">Motivo (opcional)
+              <input name="motivo" maxlength="300">
+            </label>
+            <button class="botao" type="submit">Adicionar</button>
+          </form>
+          <p class="erro-form" id="nc-erro" role="alert"></p>
+          <div id="nc-lista"></div>
+        </div>
+      </section>
+
+            <section data-tela="projetos" hidden>
+        <div class="tela-topo">
+          <div>
+            <h1>Projetos</h1>
+            <p class="subtitulo">Acompanhe cada site depois que o lead fecha. O dinheiro entra no financeiro pelo fechamento do dia.</p>
+          </div>
+          <div class="acoes">
+            <button class="botao" type="button" id="proj-novo">Novo projeto</button>
+          </div>
+        </div>
+
+        <p class="aviso-erro" id="proj-erro" role="alert" hidden></p>
+        <div class="fin-cartoes" id="proj-resumo"></div>
+        <div class="quadro" id="proj-kanban" aria-label="Kanban de projetos"></div>
+      </section>
+            <section data-tela="disciplina" hidden>
+        <div class="tela-topo">
+          <div>
+            <h1>Disciplina</h1>
+            <p class="subtitulo">Cada quadradinho é um dia. A cor mostra quantas metas você cumpriu.</p>
+          </div>
+          <div class="acoes">
+            <button class="botao-sec" id="disc-editar-metas" type="button">Editar metas</button>
+            <button class="botao-sec" id="disc-ano-ant" type="button" aria-label="Ano anterior">‹</button>
+            <strong id="disc-ano-titulo"></strong>
+            <button class="botao-sec" id="disc-ano-prox" type="button" aria-label="Próximo ano">›</button>
+          </div>
+        </div>
+
+        <p class="aviso-erro" id="disc-erro" role="alert" hidden></p>
+
+        <div class="disc-legenda">
+          <span><i class="disc-amostra disc-verde"></i> Dia bom (100% das metas)</span>
+          <span><i class="disc-amostra disc-amarelo"></i> Dia médio (60% a 99%)</span>
+          <span><i class="disc-amostra disc-vermelho"></i> Dia ruim (abaixo de 60%)</span>
+          <span><i class="disc-amostra disc-folga"></i> Folga</span>
+          <span><i class="disc-amostra"></i> Sem registro</span>
+        </div>
+
+        <div class="cartao">
+          <div class="disc-calendario" id="disc-calendario"></div>
+        </div>
+
+        <div class="cartao disc-painel" id="disc-dia"></div>
+        
+        <h2 class="titulo-secao">Resumo</h2>
+        <div class="abas" id="disc-resumo-abas" role="tablist">
+          <button type="button" class="aba" role="tab" data-resumo="semana" aria-selected="true">Últimos 7 dias</button>
+          <button type="button" class="aba" role="tab" data-resumo="mes" aria-selected="false">Este mês</button>
+        </div>
+        <p class="subtitulo" id="disc-resumo-info"></p>
+        <div class="disc-graficos">
+          <div class="cartao">
+            <h3>Dias</h3>
+            <div class="rosca-box" id="disc-rosca-dias"></div>
+          </div>
+          <div class="cartao">
+            <h3>Metas</h3>
+            <div class="rosca-box" id="disc-rosca-metas"></div>
+          </div>
+        </div>
+        <h2 class="titulo-secao">Quanto cumpriu de cada meta</h2>
+        <div class="cartao" id="disc-por-meta"></div>
+      </section>
+      <section data-tela="painel" hidden>
+        <div class="tela-topo">
+          <div>
+            <h1>Painel</h1>
+            <p class="subtitulo">Seus números comparados com o período anterior.</p>
+          </div>
+          <div class="acoes">
+            <a class="botao" href="#/fechamento">Fechamento do dia</a>
+          </div>
+        </div>
+
+        <p class="aviso-erro" id="painel-erro" role="alert" hidden></p>
+        <p class="subtitulo" id="painel-aviso" hidden></p>
+
+        <div class="abas" id="painel-periodos" role="tablist">
+          <button type="button" class="aba" role="tab" data-periodo="hoje" aria-selected="false">Hoje × ontem</button>
+          <button type="button" class="aba" role="tab" data-periodo="semana" aria-selected="true">7 dias</button>
+          <button type="button" class="aba" role="tab" data-periodo="mes" aria-selected="false">30 dias</button>
+        </div>
+        <p class="subtitulo" id="painel-periodo-info"></p>
+
+        <!-- Linha 1: dados à esquerda, lista de follow-ups à direita -->
+        <div class="painel-linha1">
+          <div class="painel-esq">
+            <div class="painel-numeros" id="painel-numeros"></div>
+            <div class="painel-taxas" id="painel-taxas"></div>
+            <div class="painel-fu-linha">
+              <div class="cartao painel-fu-donut-bolha">
+                <div class="donut">
+                  <svg id="painel-fu-svg" viewBox="0 0 200 200" role="img" aria-label="Situação dos follow-ups"></svg>
+                  <div class="donut-centro">
+                    <span class="donut-num" id="painel-fu-total">0</span>
+                    <span class="donut-sub">follow-ups</span>
+                  </div>
+                </div>
+              </div>
+              <div class="cartao painel-fu-dados">
+                <p class="titulo-mini">Situação dos follow-ups</p>
+                <div class="painel-fu-itens" id="painel-fu-itens"></div>
+              </div>
+            </div>
+          </div>
+          <div class="painel-fu-col">
+            <section class="cartao followups" id="painel-followups"></section>
+          </div>
+        </div>
+
+        <!-- Linha 2: últimos 30 dias | funil agora -->
+        <div class="painel-linha2">
+          <div class="painel-g-col">
+            <div class="painel-g-topo">
+              <h2 class="titulo-secao">Últimos 30 dias</h2>
+              <div class="abas painel-series" id="painel-series" role="tablist"></div>
+            </div>
+            <div class="cartao painel-g-card" id="painel-grafico"></div>
+          </div>
+          <div class="painel-g-col">
+            <div class="painel-g-topo">
+              <h2 class="titulo-secao">Funil agora</h2>
+            </div>
+            <div class="cartao painel-g-card" id="painel-funil"></div>
+          </div>
+        </div>
+
+        <!-- Linha 3: conversão entre etapas -->
+        <h2 class="titulo-secao">Conversão entre etapas</h2>
+        <div class="painel-linha3">
+          <div class="cartao anel-bolha">
+            <div class="anel-grafico">
+              <svg id="painel-anel-svg" viewBox="0 0 200 200" role="img" aria-label="Conversão entre etapas"></svg>
+              <div class="anel-centro">
+                <span class="anel-pct" id="painel-anel-pct"></span>
+                <span class="anel-desc" id="painel-anel-desc"></span>
+              </div>
+            </div>
+          </div>
+          <div class="cartao anel-info">
+            <div class="anel-etapas" id="painel-anel-etapas"></div>
+          </div>
+        </div>
+      </section>
+            <section data-tela="financeiro" hidden>
+        <div class="tela-topo">
+          <div>
+            <h1>Financeiro</h1>
+            <p class="subtitulo">Os ganhos vêm do fechamento de cada dia. Os gastos você lança aqui.</p>
+          </div>
+          <div class="acoes">
+            <input type="month" id="fin-mes" class="fin-mes" aria-label="Mês">
+            <button class="botao" type="button" id="fin-novo">Novo gasto</button>
+          </div>
+        </div>
+
+        <p class="aviso-erro" id="fin-erro" role="alert" hidden></p>
+
+        <div class="fin-cartoes" id="fin-cartoes"></div>
+
+        <div class="fin-duas">
+          <div class="cartao">
+            <h2 class="fin-titulo">Ganhos e gastos por mês</h2>
+            <p class="fin-legenda">
+              <span><i class="fin-cor fin-fundo-ganho"></i>Ganhos</span>
+              <span><i class="fin-cor fin-fundo-gasto"></i>Gastos</span>
+            </p>
+            <div class="fin-barras" id="fin-barras"></div>
+          </div>
+          <div class="cartao">
+            <h2 class="fin-titulo">Gastos por categoria</h2>
+            <div id="fin-rosca"></div>
+          </div>
+        </div>
+
+        <h2 class="titulo-secao">Lançamentos do mês</h2>
+        <div class="cartao" id="fin-tabela"></div>
+      </section>
+
+            <section data-tela="dados" hidden>
+        <div class="tela-topo">
+          <div>
+            <h1>Dados e backup</h1>
+            <p class="subtitulo">Cópias de segurança e exportação das suas informações.</p>
+          </div>
+        </div>
+
+        <p class="aviso-erro" id="dados-erro" role="alert" hidden></p>
+
+        <h2 class="titulo-secao">Backup</h2>
+        <div class="cartao dados-bloco">
+          <form id="form-backup" class="dados-form">
+            <label class="campo">Pasta dos backups
+              <input name="pasta" id="backup-pasta" maxlength="300">
+              <span class="dica">Deixe em branco para usar a pasta padrão. Prefira uma pasta fora deste computador (OneDrive, Google Drive ou pendrive), senão o backup se perde junto com o computador.</span>
+            </label>
+            <label class="selecionar-todos">
+              <input type="checkbox" id="backup-auto"> Backup automático: um por dia, quando o programa estiver aberto
+            </label>
+            <div class="dialog-acoes">
+              <span class="status" id="backup-status"></span>
+              <button class="botao-sec" type="submit">Salvar configuração</button>
+              <button class="botao" type="button" id="backup-agora">Fazer backup agora</button>
+            </div>
+          </form>
+
+          <p class="subtitulo" id="backup-pasta-atual"></p>
+          <p class="subtitulo" id="backup-ultimo"></p>
+          <p class="erro-form" id="backup-erro" role="alert"></p>
+
+          <h3>Últimos backups</h3>
+          <ul class="dados-lista" id="backup-lista"></ul>
+          <p class="dica-restaurar" id="backup-restaurar"></p>
+        </div>
+
+        <h2 class="titulo-secao">Exportar para planilha (CSV)</h2>
+        <div class="cartao dados-bloco">
+          <p class="subtitulo">Os arquivos abrem direto no Excel. Têm dados de contato dos seus leads, então guarde com cuidado.</p>
+          <div class="dados-exportar">
+            <a class="botao-sec" href="/api/exportar/leads" download>Exportar leads</a>
+            <a class="botao-sec" href="/api/exportar/fechamentos" download>Exportar fechamentos</a>
+            <a class="botao-sec" href="/api/exportar/copies" download>Exportar copies</a>
+                          <a class="botao-sec" href="/api/exportar/gastos" download>Exportar gastos</a>
+            <a class="botao-sec" href="/api/exportar/projetos" download>Exportar projetos</a>
+          </div>
+        </div>
+      </section>
+      <section data-tela="buscar" hidden>
+        <div class="tela-topo">
+          <div>
+            <h1>Buscar leads</h1>
+            <p class="subtitulo">Escolha a cidade e o nicho para gerar a lista do dia.</p>
+          </div>
+        </div>
+
+        <p class="aviso-erro" id="buscar-erro" role="alert" hidden></p>
+
+        <form class="cartao form-buscar" id="form-buscar">
+          <div class="grade-buscar">
+            <label class="campo">Categoria
+              <select name="categoria" id="busca-categoria" required></select>
+            </label>
+            <label class="campo">Nicho
+              <select name="nicho" id="busca-nicho" required></select>
+            </label>
+            <label class="campo">Cidade
+              <input name="cidade" maxlength="80" required placeholder="Ex.: Campo Grande">
+            </label>
+            <label class="campo">UF
+              <input name="uf" maxlength="2" required value="MS">
+            </label>
+          </div>
+          <details class="opcoes-busca">
+            <summary>Opções da busca</summary>
+            <div class="grade-buscar">
+              <label class="campo">Modo
+                <select id="opt-modo">
+                  <option value="fila">Fila: um provedor por vez (econômico)</option>
+                  <option value="mesclar">Mesclar: todos os provedores</option>
+                </select>
+              </label>
+              <label class="campo">Leads por busca
+                <input id="opt-limite" type="number" min="5" max="50" step="1">
+              </label>
+              <label class="campo">Leads que já têm site
+                <select id="opt-site">
+                  <option value="sem_site">Ignorar (padrão)</option>
+                  <option value="todos">Incluir junto com os demais</option>
+                  <option value="so_com_site">Mostrar só quem tem site</option>
+                </select>
+              </label>
+            </div>
+          </details>
+          <div class="dialog-acoes">
+            <span class="status" id="status-busca"></span>
+            <button class="botao" type="submit" id="btn-buscar">Buscar</button>
+          </div>
+        </form>
+
+        <p class="subtitulo" id="cotas-linha"></p>
+
+        <div id="busca-resultado" hidden>
+          <p class="subtitulo" id="busca-resumo"></p>
+          <div class="barra-selecao">
+            <label class="selecionar-todos">
+              <input type="checkbox" id="sel-todos"> Selecionar todos
+            </label>
+            <button class="botao" type="button" id="btn-enviar-crm" disabled>Enviar para o CRM</button>
+          </div>
+          <div class="grade-resultados" id="busca-lista"></div>
+        </div>
+      </section>
+
+            <section data-tela="copies" hidden>
+        <div class="tela-topo">
+          <div>
+            <h1>Copies</h1>
+            <p class="subtitulo">Mensagens prontas por nicho e por situação do lead.</p>
+          </div>
+          <div class="acoes">
+            <button class="botao" id="btn-nova-copy" type="button">+ Nova copy</button>
+          </div>
+        </div>
+
+        <p class="aviso-erro" id="copies-erro" role="alert" hidden></p>
+
+        <div class="cartao filtros-copies">
+          <label class="campo">Nicho
+            <select id="copies-filtro-nicho"></select>
+          </label>
+          <label class="campo">Situação do lead
+            <select id="copies-filtro-situacao">
+              <option value="">Todas</option>
+              <option value="nenhum">Sem site</option>
+              <option value="so_rede_social">Só rede social</option>
+              <option value="encurtador">Link único (Linktree, bit.ly)</option>
+              <option value="site">Já tem site</option>
+              <option value="sem">Sem situação definida</option>
+            </select>
+          </label>
+          <label class="selecionar-todos">
+            <input type="checkbox" id="copies-filtro-novas"> Só as novas
+          </label>
+        </div>
+
+        <p class="subtitulo" id="copies-contagem"></p>
+        <div class="grade-copies" id="copies-lista"></div>
+        <button class="botao-sec" id="copies-mais" type="button" hidden>Mostrar mais</button>
+      </section>
+
+
+      <section data-tela="crm" hidden>
+        <div class="tela-topo">
+          <div>
+            <h1>CRM</h1>
+            <p class="subtitulo">Acompanhe cada lead do primeiro contato até o fechamento.</p>
+          </div>
+          <div class="acoes">
+                        <a class="botao-sec" href="#/descartados">Descartados</a>
+            <button class="botao-sec" id="btn-novo-lead" type="button">+ Novo lead</button>
+            <a class="botao" href="#/buscar">Buscar leads</a>
+          </div>
+        </div>
+        <p class="aviso-erro" id="crm-erro" role="alert" hidden></p>
+                <div class="crm-filtros">
+          <input type="search" id="crm-busca" placeholder="Buscar por nome, cidade ou telefone" aria-label="Buscar leads">
+          <select id="crm-filtro-nicho" aria-label="Filtrar por nicho">
+            <option value="">Todos os nichos</option>
+          </select>
+          <select id="crm-filtro-temp" aria-label="Filtrar por temperatura">
+            <option value="">Qualquer temperatura</option>
+            <option value="quente">Quente</option>
+            <option value="frio">Frio</option>
+          </select>
+          <button type="button" class="botao-sec" id="crm-limpar-filtros" hidden>Limpar filtros</button>
+        </div>
+        <div class="quadro" id="kanban" aria-label="Funil de leads"></div>
+        <p class="subtitulo" id="descartados-total"></p>
+      </section>
+
+      <section data-tela="fechamento" hidden>
+        <div class="tela-topo">
+          <div>
+            <h1>Fechamento do dia</h1>
+            <p class="subtitulo">Registre o que você fez hoje para alimentar o painel.</p>
+          </div>
+        </div>
+
+        <div class="resumo" id="resumo-semana"></div>
+
+        <form class="cartao form-fechamento" id="form-fechamento">
+          <label class="campo campo-data">Data
+            <input type="date" name="data" required>
+          </label>
+
+          <div class="grade-campos">
+            <label class="campo">Leads buscados
+              <input name="leads_buscados" type="number" min="0" step="1" inputmode="numeric">
+            </label>
+            <label class="campo">Leads separados
+              <input name="leads_separados" type="number" min="0" step="1" inputmode="numeric">
+            </label>
+            <label class="campo">Leads abordados
+              <input name="leads_abordados" type="number" min="0" step="1" inputmode="numeric">
+              <span class="dica" id="dica-abordados" hidden></span>
+            </label>
+            <label class="campo">Respostas
+              <input name="respostas" type="number" min="0" step="1" inputmode="numeric">
+            </label>
+            <label class="campo">Projetos aceitos
+              <input name="projetos_aceitos" type="number" min="0" step="1" inputmode="numeric">
+            </label>
+            <label class="campo">Valor ganho (R$)
+              <input name="valor" inputmode="decimal" placeholder="0,00">
+            </label>
+            <label class="campo">Forma de pagamento
+              <input name="metodo_pagamento" list="lista-pagamento" maxlength="40">
+            </label>
+            <label class="campo">Horas trabalhadas
+              <input name="horas_trabalhadas" type="number" min="0" max="24" step="any" inputmode="decimal">
+              <span class="dica" id="dica-horas" hidden></span>
+            </label>
+          </div>
+
+          <datalist id="lista-pagamento">
+            <option value="Pix"></option>
+            <option value="Cartão"></option>
+            <option value="Boleto"></option>
+            <option value="Transferência"></option>
+            <option value="Dinheiro"></option>
+          </datalist>
+
+          <label class="campo">Observações
+            <textarea name="observacoes" rows="3" maxlength="1000"></textarea>
+          </label>
+
+          <p class="erro-form" id="erro-fechamento" role="alert"></p>
+
+
+          
+          <div class="dialog-acoes">
+            <span class="status" id="status-fechamento"></span>
+            <button class="botao" type="submit">Salvar fechamento</button>
+          </div>
+        </form>
+
+        <h2 class="titulo-secao">Últimos dias</h2>
+        <div class="cartao tabela-wrap">
+          <table class="tabela" id="tabela-fechamentos">
+            <thead>
+              <tr>
+                <th>Dia</th><th>Buscados</th><th>Separados</th><th>Abordados</th>
+                <th>Respostas</th><th>Projetos</th><th>Valor</th><th>Horas</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="dlg-novo">
+    <form id="form-novo">
+      <h2>Novo lead</h2>
+      <label class="campo">Nome *
+        <input name="nome" required maxlength="120">
+      </label>
+      <label class="campo">Nicho
+        <input name="nicho" maxlength="80" placeholder="Ex.: salão de beleza">
+      </label>
+      <label class="campo">Telefone / WhatsApp
+        <input name="telefone" inputmode="tel" placeholder="(67) 99999-0000">
+      </label>
+      <div class="campos-2">
+        <label class="campo">Cidade
+          <input name="cidade" maxlength="80">
+        </label>
+        <label class="campo">UF
+          <input name="uf" maxlength="2">
+        </label>
+      </div>
+      <label class="campo">Instagram
+        <input name="instagram" placeholder="@usuario">
+      </label>
+      <label class="campo">Site
+        <input name="site" placeholder="www.exemplo.com.br">
+      </label>
+      <p class="erro-form" id="erro-novo" role="alert"></p>
+      <div class="dialog-acoes">
+        <button class="botao-sec" type="button" id="cancelar-novo">Cancelar</button>
+        <button class="botao" type="submit">Salvar lead</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dlg-motivo">
+    <form method="dialog" id="form-motivo">
+      <h2 id="motivo-titulo">Motivo</h2>
+      <label class="campo">Motivo
+        <textarea name="motivo" rows="3" maxlength="500" required></textarea>
+      </label>
+      <div class="dialog-acoes">
+        <button class="botao-sec" value="cancelar" formnovalidate>Cancelar</button>
+        <button class="botao" value="ok">Confirmar</button>
+      </div>
+    </form>
+  </dialog>
+    <dialog id="dlg-abordagem" class="dlg-abordagem">
+    <div class="abordagem">
+      <header class="abordagem-topo">
+        <div>
+          <h2 id="abordagem-titulo">Abordagem</h2>
+          <p class="subtitulo" id="abordagem-sub"></p>
+        </div>
+        <button class="botao-sec" type="button" id="abordagem-fechar">Fechar</button>
+      </header>
+
+      <p class="aviso-erro" id="abordagem-erro" role="alert" hidden></p>
+      <p class="dica-ritmo" id="abordagem-ritmo"></p>
+
+      <div class="abas" role="tablist">
+        <button type="button" class="aba" id="aba-copy" role="tab" aria-selected="true">Copy pronta</button>
+        <button type="button" class="aba" id="aba-resumo" role="tab" aria-selected="false">Resumo para conversar</button>
+        <button type="button" class="botao-sec" id="abordagem-padrao">Usar esta aba como padrão</button>
+      </div>
+
+      <div id="abordagem-corpo"></div>
+
+      <div class="dialog-acoes">
+        <span class="status" id="abordagem-status"></span>
+        <button class="botao" type="button" id="abordagem-marcar">Marcar como abordado</button>
+      </div>
+    </div>
+  </dialog>
+    <dialog id="dlg-copy">
+    <form id="form-copy" class="form-copy">
+      <h2 id="copy-dlg-titulo">Nova copy</h2>
+      <div class="campos-2">
+        <label class="campo">Nicho *
+          <select id="copy-nicho" required></select>
+        </label>
+        <label class="campo">Situação do lead
+          <select id="copy-situacao">
+            <option value="">Qualquer situação</option>
+            <option value="nenhum">Sem site</option>
+            <option value="so_rede_social">Só rede social</option>
+            <option value="encurtador">Link único (Linktree, bit.ly)</option>
+            <option value="site">Já tem site</option>
+          </select>
+        </label>
+      </div>
+      <label class="campo">Título *
+        <input name="titulo" required maxlength="120">
+      </label>
+      <label class="campo">Texto *
+        <textarea name="texto" rows="14" required maxlength="3000"></textarea>
+        <span class="dica">Use {nome} onde o nome do negócio deve entrar. Trechos entre [colchetes] bloqueiam o envio até serem preenchidos.</span>
+      </label>
+      <label class="selecionar-todos">
+        <input type="checkbox" name="nova"> Marcar como nova (ainda não testada)
+      </label>
+      <p class="erro-form" id="erro-copy" role="alert"></p>
+      <div class="dialog-acoes">
+        <button class="botao-sec" type="button" id="cancelar-copy">Cancelar</button>
+        <button class="botao" type="submit">Salvar copy</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dlg-cronometro">
+    <form id="form-cronometro">
+      <h2>Finalizar trabalho</h2>
+      <p class="subtitulo" id="cron-resumo"></p>
+      <label class="campo">Minutos a registrar
+        <input name="minutos" type="number" min="0" max="1440" step="1" required>
+        <span class="dica">Se esqueceu o cronômetro ligado, diminua o valor.</span>
+      </label>
+      <p class="erro-form" id="cron-erro" role="alert"></p>
+      <div class="dialog-acoes">
+        <button class="botao-sec" type="button" id="cron-voltar">Voltar</button>
+        <button class="botao-sec" type="button" id="cron-descartar">Descartar tempo</button>
+        <button class="botao" type="submit">Registrar</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog id="dlg-metas" class="dlg-metas">
+    <div class="metas-editor">
+      <header class="abordagem-topo">
+        <div>
+          <h2>Metas diárias</h2>
+          <p class="subtitulo">As mudanças valem para todos os dias, inclusive os passados, porque a cor é calculada na hora.</p>
+        </div>
+        <button class="botao-sec" type="button" id="metas-fechar">Fechar</button>
+      </header>
+      <p class="aviso-erro" id="metas-erro" role="alert" hidden></p>
+      <div id="metas-lista"></div>
+      <form id="form-meta-nova" class="metas-nova">
+        <label class="campo">Nova meta manual
+          <input name="nome" maxlength="80" required placeholder="Ex.: Estudar 30 minutos">
+        </label>
+        <button class="botao" type="submit">Adicionar</button>
+      </form>
+      <p class="status" id="metas-status"></p>
+    </div>
+  </dialog>
+  <script type="module" src="app.js"></script>
+  <script type="module" src="crm.js"></script>
+  <script type="module" src="fechamento.js"></script>
+  <script type="module" src="buscar.js"></script>
+  <script type="module" src="disciplina-resumo.js"></script>
+  <script type="module" src="disciplina-metas.js"></script>
+  <script type="module" src="dados.js"></script>
+  <script type="module" src="descartados.js"></script>
+</body>
+</html>

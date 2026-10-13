@@ -1,0 +1,70 @@
+/* Tema escuro (padrão): preto com vermelho de destaque */
+:root,
+:root[data-theme="dark"] {
+  --fundo: #0a0a0b;
+  --card: #131315;
+  --card-2: #1a1a1d;
+  --borda: #26262b;
+  --texto: #f2f2f3;
+  --texto-2: #8c8c94;
+  --destaque: #e5383b;
+  --bom: #3dbe8b;
+  --medio: #f2b84b;
+  --ruim: #ff5c8a;
+  --vazio: #1c1c20;
+  --sombra: 0 10px 30px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+/* Tema claro */
+:root[data-theme="light"] {
+  --fundo: #f5f5f6;
+  --card: #ffffff;
+  --card-2: #efeff1;
+  --borda: #e2e2e6;
+  --texto: #111113;
+  --texto-2: #6b6b75;
+  --destaque: #d62828;
+  --bom: #2fae7a;
+  --medio: #eba830;
+  --ruim: #e8467c;
+  --vazio: #e9e9ed;
+  --sombra: 0 10px 30px rgba(20, 20, 30, 0.08);
+  color-scheme: light;
+}
+
+/* Valores comuns aos dois temas */
+:root {
+  /* tudo derivado do --destaque: trocar só ele muda o site inteiro */
+  --destaque-2: color-mix(in srgb, var(--destaque) 70%, white);
+  --destaque-suave: color-mix(in srgb, var(--destaque) 14%, transparent);
+  --destaque-brilho: color-mix(in srgb, var(--destaque) 35%, transparent);
+
+  --raio: 20px;
+  --raio-sm: 14px;
+  --gradiente: linear-gradient(135deg, var(--destaque), var(--destaque-2));
+  --fonte: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* apelidos temporários: as telas antigas continuam funcionando
+     até refazermos cada uma (partes 3 e 4). Depois removemos. */
+  --azul: var(--destaque);
+  --ciano: var(--destaque-2);
+}
+/* ---------- Cores de destaque (escolhidas pelo seletor do menu) ---------- */
+/* Vermelho é o padrão e já está definido acima. */
+
+/* escuro */
+:root[data-destaque="laranja"] { --destaque: #ff7a1a; }
+:root[data-destaque="rosa"]    { --destaque: #ec4899; }
+:root[data-destaque="roxo"]    { --destaque: #8b5cf6; }
+:root[data-destaque="azul"]    { --destaque: #3b82f6; }
+:root[data-destaque="ciano"]   { --destaque: #19c2ee; }
+:root[data-destaque="verde"]   { --destaque: #22c55e; }
+
+/* claro (versões um pouco mais fechadas, para dar contraste no fundo branco) */
+:root[data-theme="light"][data-destaque="laranja"] { --destaque: #e8590c; }
+:root[data-theme="light"][data-destaque="rosa"]    { --destaque: #db2777; }
+:root[data-theme="light"][data-destaque="roxo"]    { --destaque: #7c3aed; }
+:root[data-theme="light"][data-destaque="azul"]    { --destaque: #2563eb; }
+:root[data-theme="light"][data-destaque="ciano"]   { --destaque: #0891b2; }
+:root[data-theme="light"][data-destaque="verde"]   { --destaque: #16a34a; }

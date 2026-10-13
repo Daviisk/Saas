@@ -1,0 +1,603 @@
+#painel-periodos {
+  margin-bottom: 8px;
+}
+
+.resumo-item .delta {
+  margin-top: 0.4rem;
+}
+
+/* ---------- Linha 1: dados | follow-ups ---------- */
+.painel-linha1 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 20px;
+  align-items: stretch;
+  margin-top: 16px;
+}
+
+.painel-esq {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.painel-numeros {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.painel-taxas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.taxa-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+.taxa-bloco + .taxa-bloco {
+  padding-left: 16px;
+  border-left: 1px solid var(--borda);
+}
+
+.taxa-rotulo {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--texto-2);
+  font-size: 11px;
+}
+
+.taxa-valor {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.taxa-bloco .delta {
+  margin-top: 8px;
+}
+
+/* Gráfico redondo dos follow-ups + dados dele */
+.painel-fu-linha {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.painel-fu-donut-bolha {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.donut {
+  position: relative;
+  width: 190px;
+  height: 190px;
+}
+
+.donut svg,
+.anel-grafico svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.donut circle,
+.anel-grafico circle {
+  transition: opacity 0.2s, stroke-width 0.2s;
+}
+
+.donut-centro,
+.anel-centro {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.donut-num {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.donut-sub {
+  margin-top: 4px;
+  color: var(--texto-2);
+  font-size: 11px;
+}
+
+.painel-fu-dados {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.titulo-mini {
+  margin: 0;
+  color: var(--texto-2);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.painel-fu-itens {
+  display: grid;
+  gap: 8px;
+}
+
+.fu-item {
+  display: grid;
+  grid-template-columns: 10px 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--card-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.fu-item:hover,
+.fu-item.ativa {
+  background: var(--destaque-suave);
+  border-color: var(--destaque-brilho);
+}
+
+.fu-dot,
+.anel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.fu-item-nome {
+  color: var(--texto-2);
+  font-size: 13px;
+}
+
+.fu-item-nome small {
+  display: block;
+  font-size: 11px;
+  opacity: 0.75;
+}
+
+.fu-item:hover .fu-item-nome,
+.fu-item.ativa .fu-item-nome {
+  color: var(--texto);
+}
+
+.fu-item-num {
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.fu-item-pct {
+  min-width: 34px;
+  color: var(--texto-2);
+  font-size: 11px;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ---------- Lista de follow-ups (direita) ---------- */
+.painel-fu-col {
+  position: relative;
+  min-height: 320px;
+}
+
+.followups {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.followup-topo {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 14px;
+  background: var(--card);
+  border-bottom: 1px solid var(--borda);
+}
+
+.followup-titulo {
+  margin: 0;
+  font-size: 15px;
+}
+
+.followup-badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--destaque-suave);
+  color: var(--destaque);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.followup-grupo h3 {
+  margin: 0;
+  padding: 12px 20px 6px;
+  color: var(--texto-2);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.followup-linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--borda);
+  transition: background 0.12s;
+}
+
+.followup-linha:hover {
+  background: var(--card-2);
+}
+
+.followup-info {
+  min-width: 0;
+}
+
+.followup-nome {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.followup-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.followup-botoes {
+  display: flex;
+  flex: none;
+  gap: 6px;
+}
+
+.followup-botoes .botao-sec {
+  padding: 5px 12px;
+  font-size: 12px;
+}
+
+.followup-vazio {
+  margin: 0;
+  padding: 28px 20px;
+  color: var(--texto-2);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ---------- Linha 2: últimos 30 dias | funil ---------- */
+.painel-linha2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+  margin-top: 28px;
+}
+
+.painel-g-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.painel-g-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  min-height: 34px;
+  margin-bottom: 12px;
+}
+
+.painel-g-topo .titulo-secao {
+  margin: 0;
+}
+
+.painel-series {
+  gap: 6px;
+}
+
+.painel-series .aba {
+  padding: 5px 14px;
+  font-size: 12px;
+}
+
+.painel-g-card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Bolhas */
+.bolhas-grid {
+  display: grid;
+  grid-template-columns: repeat(30, minmax(0, 1fr));
+  gap: 4px;
+  align-items: end;
+  height: 190px;
+}
+
+.bolha-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+  height: 100%;
+}
+
+.bolha {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--destaque);
+  opacity: 0.18;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.bolha.ativa {
+  opacity: 1;
+}
+
+.bolha.semi {
+  opacity: 0.55;
+}
+
+.bolha-col:hover .bolha {
+  opacity: 0.85;
+  transform: scale(1.15);
+}
+
+.bolha-eixo {
+  display: grid;
+  grid-template-columns: repeat(30, minmax(0, 1fr));
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.bolha-label {
+  display: flex;
+  justify-content: center;
+  color: var(--texto-2);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.bolha-col:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  z-index: 10;
+  padding: 6px 10px;
+  transform: translateX(-50%);
+  background: var(--card-2);
+  border: 1px solid var(--destaque-brilho);
+  border-radius: 8px;
+  box-shadow: var(--sombra);
+  color: var(--texto);
+  font-size: 11px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Funil */
+.funil {
+  display: grid;
+  gap: 14px;
+}
+
+.funil-linha {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr) 3rem;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.funil-etapa {
+  color: var(--texto-2);
+}
+
+.funil-barra-bg {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--vazio);
+}
+
+.funil-barra {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--gradiente);
+  box-shadow: 0 0 12px var(--destaque-brilho);
+}
+
+.funil-total {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* ---------- Linha 3: conversão entre etapas ---------- */
+.painel-linha3 {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.anel-bolha {
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+.anel-grafico {
+  position: relative;
+  width: 210px;
+  height: 210px;
+}
+
+.anel-pct {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.anel-desc {
+  max-width: 62px;
+  margin-top: 3px;
+  color: var(--texto-2);
+  font-size: 9px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.anel-info {
+  display: flex;
+  align-items: center;
+}
+
+.anel-etapas {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+
+.anel-etapa-linha {
+  display: grid;
+  grid-template-columns: 12px 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--card-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.anel-etapa-linha:hover,
+.anel-etapa-linha.ativa {
+  background: var(--destaque-suave);
+  border-color: var(--destaque-brilho);
+}
+
+.anel-nome {
+  color: var(--texto-2);
+  font-size: 13px;
+}
+
+.anel-etapa-linha.ativa .anel-nome {
+  color: var(--texto);
+  font-weight: 600;
+}
+
+.anel-num {
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Telas menores (o celular a gente refina depois) ---------- */
+@media (max-width: 1100px) {
+  .painel-linha1,
+  .painel-linha2,
+  .painel-linha3,
+  .painel-fu-linha {
+    grid-template-columns: 1fr;
+  }
+
+  .painel-numeros {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .painel-fu-col {
+    min-height: 0;
+  }
+
+  .followups {
+    position: static;
+  }
+}
+/* ---------- Animações do painel ---------- */
+.painel-numeros .resumo-item,
+.painel-taxas .taxa-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s, border-color 0.2s;
+}
+
+.painel-numeros .resumo-item:hover,
+.painel-taxas .taxa-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--destaque-brilho);
+}
+
+/* brilho suave no canto dos cartões de número */
+.painel-numeros .resumo-item::after {
+  content: "";
+  position: absolute;
+  right: -18px;
+  bottom: -18px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--destaque-suave), transparent 70%);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .painel-numeros .resumo-item:hover,
+  .painel-taxas .taxa-card:hover {
+    transform: none;
+  }
+}

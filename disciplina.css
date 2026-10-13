@@ -1,0 +1,369 @@
+:root {
+  --disc-verde: #2fbf71;
+  --disc-amarelo: #f2b84b;
+  --disc-vermelho: #e5575a;
+  --disc-folga: #6f86c9;
+}
+
+.disc-legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0.5rem 0 1rem;
+  font-size: 0.85em;
+}
+.disc-legenda span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.disc-amostra {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+}
+
+.disc-verde { background: var(--disc-verde); border-color: transparent; }
+.disc-amarelo { background: var(--disc-amarelo); border-color: transparent; }
+.disc-vermelho { background: var(--disc-vermelho); border-color: transparent; }
+.disc-folga { background: var(--disc-folga); border-color: transparent; }
+
+.disc-calendario {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+.disc-mes {
+  display: grid;
+  gap: 0.25rem;
+  align-content: start;
+  min-width: 2.1rem;
+}
+.disc-mes-nome {
+  text-align: center;
+  font-size: 0.8em;
+  opacity: 0.8;
+  margin-bottom: 0.15rem;
+}
+.disc-dia {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: 0.4rem;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+.disc-dia.disc-verde,
+.disc-dia.disc-amarelo,
+.disc-dia.disc-vermelho,
+.disc-dia.disc-folga {
+  color: #0b1a12;
+}
+.disc-dia.disc-futuro { opacity: 0.35; }
+.disc-dia.disc-hoje {
+  outline: 2px solid currentColor;
+  outline-offset: 1px;
+}
+.disc-dia.disc-selecionado {
+  box-shadow: 0 0 0 2px currentColor;
+}
+
+.disc-painel {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.disc-dia-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+.disc-dia-topo h2 {
+  margin: 0;
+  text-transform: capitalize;
+}
+.disc-selo-verde { background: var(--disc-verde); color: #0b1a12; border-color: transparent; }
+.disc-selo-amarelo { background: var(--disc-amarelo); color: #0b1a12; border-color: transparent; }
+.disc-selo-vermelho { background: var(--disc-vermelho); color: #0b1a12; border-color: transparent; }
+.disc-selo-folga { background: var(--disc-folga); color: #0b1a12; border-color: transparent; }
+
+.disc-metas {
+  display: grid;
+  gap: 0.5rem;
+}
+.disc-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 0.6rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.disc-meta:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+.disc-meta-quadro {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 0.35rem;
+  border: 2px solid currentColor;
+  font-weight: 700;
+}
+.disc-meta.feita .disc-meta-quadro {
+  background: var(--disc-verde);
+  border-color: var(--disc-verde);
+  color: #0b1a12;
+}
+.disc-meta-detalhe {
+  margin-left: auto;
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
+.disc-campos-2 {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: start;
+}
+.disc-painel textarea,
+.disc-painel select {
+  width: 100%;
+  font: inherit;
+}
+:root[data-theme="dark"] .disc-painel select { color-scheme: dark; }
+:root[data-theme="light"] .disc-painel select { color-scheme: light; }
+
+.disc-graficos {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 0.5rem;
+}
+.disc-graficos h3 {
+  margin: 0 0 0.75rem;
+}
+.rosca-box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+.rosca-box svg {
+  width: 9rem;
+  height: 9rem;
+  flex: none;
+}
+.rosca-fundo {
+  stroke: currentColor;
+  opacity: 0.15;
+}
+.rosca-parte.verde { stroke: var(--disc-verde); }
+.rosca-parte.amarelo { stroke: var(--disc-amarelo); }
+.rosca-parte.vermelho { stroke: var(--disc-vermelho); }
+.rosca-parte.folga { stroke: var(--disc-folga); }
+.rosca-parte.vazio {
+  stroke: currentColor;
+  opacity: 0.3;
+}
+.rosca-centro {
+  fill: currentColor;
+  font-size: 7px;
+  font-weight: 700;
+}
+.rosca-legenda {
+  display: grid;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.rosca-legenda li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.por-meta-linha {
+  display: grid;
+  grid-template-columns: minmax(0, 14rem) 1fr 7rem;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.35rem 0;
+}
+.por-meta-linha progress {
+  width: 100%;
+  height: 0.9rem;
+}
+.por-meta-linha span:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.dlg-metas {
+  width: min(640px, 94vw);
+  max-height: 90vh;
+  padding: 0;
+  overflow: auto;
+}
+.metas-editor {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+.meta-linha {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+}
+.meta-alvo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.meta-alvo input {
+  width: 6rem;
+}
+.metas-nova {
+  display: flex;
+  align-items: end;
+  gap: 0.75rem;
+}
+.metas-nova .campo {
+  flex: 1;
+}
+/* ---------- Redesign Parte 4: Disciplina ---------- */
+.disc-amostra {
+  border: 1px solid var(--borda);
+  border-radius: 5px;
+}
+
+.disc-mes-nome {
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+  opacity: 1;
+}
+
+.disc-dia {
+  border: 1px solid var(--borda);
+  border-radius: 9px;
+  background: var(--card-2);
+  color: var(--texto-2);
+  transition: transform 0.12s, border-color 0.12s;
+}
+
+.disc-dia:hover {
+  border-color: var(--destaque);
+  transform: scale(1.08);
+}
+
+.disc-dia.disc-verde,
+.disc-dia.disc-amarelo,
+.disc-dia.disc-vermelho,
+.disc-dia.disc-folga {
+  border-color: transparent;
+  color: #0b1a12;
+}
+
+/* hoje usa a cor de destaque; o dia selecionado usa o contorno do texto */
+.disc-dia.disc-hoje {
+  outline: 2px solid var(--destaque);
+  outline-offset: 2px;
+}
+
+.disc-dia.disc-selecionado {
+  box-shadow: 0 0 0 2px var(--texto);
+}
+
+.disc-painel {
+  padding: 24px;
+}
+
+.disc-meta {
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  background: var(--card-2);
+  color: var(--texto);
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.disc-meta:hover:not(:disabled) {
+  border-color: var(--destaque-brilho);
+}
+
+.disc-meta-quadro {
+  border-color: var(--texto-2);
+  border-radius: 7px;
+}
+
+.disc-meta-detalhe {
+  color: var(--texto-2);
+  opacity: 1;
+}
+
+.disc-painel textarea,
+.disc-painel select,
+.meta-alvo input {
+  padding: 10px 12px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  background: var(--fundo);
+  color: var(--texto);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.disc-painel textarea:focus,
+.disc-painel select:focus,
+.meta-alvo input:focus {
+  outline: none;
+  border-color: var(--destaque);
+  box-shadow: 0 0 0 3px var(--destaque-suave);
+}
+
+.disc-graficos h3 {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+}
+
+.rosca-fundo {
+  stroke: var(--vazio);
+  opacity: 1;
+}
+
+.rosca-parte.vazio {
+  stroke: var(--borda);
+  opacity: 1;
+}
+
+.rosca-centro {
+  fill: var(--texto);
+}
+
+.meta-linha {
+  border-bottom-color: var(--borda);
+}

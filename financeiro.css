@@ -1,0 +1,302 @@
+.fin-mes {
+  padding: 8px 10px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  background: var(--card);
+  color: var(--texto);
+  font: inherit;
+}
+
+/* ---------- Cartões ---------- */
+.fin-cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.fin-cartao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 14px;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+}
+
+.fin-rotulo {
+  color: var(--texto-2);
+  font-size: 12px;
+}
+
+.fin-numero {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.fin-numero.bom {
+  color: var(--bom);
+}
+
+.fin-numero.ruim {
+  color: var(--ruim);
+}
+
+/* ---------- Gráficos ---------- */
+.fin-duas {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 900px) {
+  .fin-duas {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fin-titulo {
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+.fin-legenda {
+  display: flex;
+  gap: 14px;
+  margin: 0 0 8px;
+  color: var(--texto-2);
+  font-size: 12px;
+}
+
+.fin-cor {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+  border-radius: 2px;
+}
+
+.fin-fundo-ganho {
+  background: var(--bom);
+}
+
+.fin-fundo-gasto {
+  background: var(--ruim);
+}
+
+.fin-fundo-0 {
+  background: var(--ciano);
+}
+
+.fin-fundo-1 {
+  background: var(--medio);
+}
+
+.fin-fundo-2 {
+  background: #8b7cf6;
+}
+
+.fin-barras svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fin-linha-grade {
+  stroke: var(--borda);
+  stroke-width: 1;
+}
+
+.fin-svg-texto {
+  fill: var(--texto-2);
+  font-size: 10px;
+}
+
+.fin-barra-ganho {
+  fill: var(--bom);
+}
+
+.fin-barra-gasto {
+  fill: var(--ruim);
+}
+
+.fin-barra-ganho.fora,
+.fin-barra-gasto.fora {
+  opacity: 0.45;
+}
+
+.fin-rosca-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.fin-rosca {
+  flex: none;
+  width: 170px;
+  height: 170px;
+}
+
+.fin-arco-fundo {
+  stroke: var(--vazio);
+}
+
+.fin-cat-0 {
+  stroke: var(--ciano);
+}
+
+.fin-cat-1 {
+  stroke: var(--medio);
+}
+
+.fin-cat-2 {
+  stroke: #8b7cf6;
+}
+
+.fin-rosca-total {
+  fill: var(--texto);
+  font-size: 3.4px;
+  font-weight: 700;
+}
+
+.fin-rosca-legenda {
+  display: flex;
+  flex: 1 1 160px;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.fin-rosca-legenda li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 0;
+}
+
+.fin-leg-nome {
+  flex: 1 1 100%;
+  color: var(--texto-2);
+  font-size: 12px;
+}
+
+/* ---------- Tabela ---------- */
+.fin-tabela-rolagem {
+  overflow-x: auto;
+}
+
+.fin-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.fin-tabela th,
+.fin-tabela td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--borda);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.fin-tabela th {
+  color: var(--texto-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.fin-valor {
+  font-weight: 700;
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+.fin-pos {
+  color: var(--bom);
+}
+
+.fin-neg {
+  color: var(--ruim);
+}
+
+.fin-acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.campo select {
+  padding: 10px 12px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  background: var(--fundo);
+  color: var(--texto);
+  font: inherit;
+}
+/* ---------- Redesign Parte 4: Financeiro ---------- */
+.fin-mes:focus {
+  outline: none;
+  border-color: var(--destaque);
+  box-shadow: 0 0 0 3px var(--destaque-suave);
+}
+
+.fin-cartao {
+  gap: 8px;
+  padding: 18px 20px;
+  box-shadow: var(--sombra);
+}
+
+.fin-rotulo {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.fin-numero {
+  font-size: 28px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.fin-titulo {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+}
+
+/* a categoria 1 deixa de ser "ciano" fixo e passa a seguir a cor de destaque */
+.fin-fundo-0,
+.fin-cat-0 {
+  background: var(--destaque);
+}
+
+.fin-cat-0 {
+  background: none;
+  stroke: var(--destaque);
+}
+
+.fin-tabela th {
+  padding: 12px 10px;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.fin-tabela tbody tr {
+  transition: background 0.12s;
+}
+
+.fin-tabela tbody tr:hover {
+  background: var(--card-2);
+}

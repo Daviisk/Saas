@@ -1,0 +1,746 @@
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.aviso-erro {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border: 1px solid var(--ruim);
+  border-radius: var(--raio-sm);
+  background: var(--card);
+  color: var(--ruim);
+}
+
+/* ---------- Quadro ---------- */
+.quadro {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  scroll-snap-type: x proximity;
+}
+
+.coluna {
+  flex: 0 0 290px;
+  min-height: 180px;
+  padding: 12px;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  scroll-snap-align: start;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.coluna.sobre {
+  border-color: var(--ciano);
+  background: var(--card-2);
+}
+
+.coluna-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.coluna-topo h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.contador {
+  min-width: 26px;
+  padding: 2px 8px;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  background: var(--card-2);
+  color: var(--ciano);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.coluna-fechado .contador {
+  color: var(--bom);
+}
+
+.coluna-perdido .contador {
+  color: var(--ruim);
+}
+
+.coluna-corpo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.coluna-vazia {
+  margin: 24px 0;
+  color: var(--texto-2);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ---------- Card do lead ---------- */
+.lead-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 12px 12px;
+  overflow: hidden;
+  background: var(--card-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  cursor: grab;
+}
+
+.lead-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--gradiente);
+}
+
+.lead-card.arrastando {
+  opacity: 0.45;
+}
+
+.lead-topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--vazio);
+  color: var(--ciano);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.lead-nome {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.lead-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.lead-info:empty {
+  display: none;
+}
+
+.selo {
+  padding: 2px 8px;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--texto-2);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.selo-bom {
+  color: var(--bom);
+  border-color: var(--bom);
+}
+
+.selo-medio,
+.selo-aviso {
+  color: var(--medio);
+  border-color: var(--medio);
+}
+
+.selo-ruim {
+  color: var(--ruim);
+  border-color: var(--ruim);
+}
+
+.lead-local {
+  margin: 0;
+  color: var(--texto-2);
+  font-size: 12px;
+}
+
+.canais {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.canal {
+  padding: 6px 0;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--ciano);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+a.canal:hover {
+  filter: brightness(1.2);
+}
+
+.canal.desativado {
+  opacity: 0.35;
+}
+
+.canal-whats {
+  color: var(--bom);
+}
+
+.canal-insta {
+  color: #e0559a;
+}
+
+.mover {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--texto-2);
+  font: inherit;
+  font-size: 12px;
+}
+
+/* ---------- Janelas (novo lead, motivo) ---------- */
+dialog {
+  width: min(440px, calc(100vw - 32px));
+  padding: 22px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--card);
+  color: var(--texto);
+  box-shadow: var(--sombra);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+dialog h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+  color: var(--texto-2);
+  font-size: 13px;
+}
+
+.campo input,
+.campo textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  background: var(--fundo);
+  color: var(--texto);
+  font: inherit;
+}
+
+.campos-2 {
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  gap: 10px;
+}
+
+.erro-form {
+  min-height: 1.2em;
+  margin: 0 0 8px;
+  color: var(--ruim);
+  font-size: 13px;
+}
+
+.dialog-acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+@media (max-width: 820px) {
+  .coluna {
+    flex-basis: 82vw;
+  }
+}
+/* ---------- Parte 9: detalhes do lead ---------- */
+.botoes-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.aviso-erro:empty {
+  display: none;
+}
+
+.dlg-lead {
+  width: min(600px, calc(100vw - 32px));
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.det-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.det-titulo {
+  margin: 0;
+  font-size: 18px;
+  overflow-wrap: anywhere;
+}
+
+.det-secao {
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.det-secao h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.det-linha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.det-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  background: var(--fundo);
+  color: var(--texto);
+  font: inherit;
+}
+
+.det-linha .det-input {
+  flex: 1 1 200px;
+  width: auto;
+}
+
+.det-destaque {
+  color: var(--ciano);
+  font-weight: 700;
+}
+
+.det-dica {
+  margin: 8px 0 0;
+  color: var(--texto-2);
+  font-size: 12px;
+}
+
+.det-alerta {
+  margin: 0 0 8px;
+  color: var(--ruim);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.det-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.det-historico {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.det-item {
+  padding: 8px 10px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  background: var(--card-2);
+}
+
+.det-item.det-nota {
+  border-color: var(--ciano);
+}
+
+.det-item-topo {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--texto-2);
+  font-size: 11px;
+}
+
+.det-tipo {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.det-texto {
+  margin: 4px 0 0;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+/* ---------- Filtros do CRM ---------- */
+.crm-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.crm-filtros input[type="search"] {
+  flex: 1 1 240px;
+}
+
+.crm-filtros input[type="search"],
+.crm-filtros select {
+  padding: 10px 12px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  background: var(--card);
+  color: var(--texto);
+  font: inherit;
+}
+
+/* ---------- Descartados e não contatar ---------- */
+.desc-linha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--borda);
+}
+
+.desc-linha:last-child {
+  border-bottom: 0;
+}
+
+.desc-info {
+  display: flex;
+  flex: 1 1 260px;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.desc-motivo {
+  margin: 0;
+  color: var(--texto-2);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.desc-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.desc-excluir {
+  color: var(--ruim);
+}
+
+.nc-form {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  align-items: end;
+  gap: 10px;
+}
+
+.nc-form .campo {
+  margin-bottom: 0;
+}
+
+@media (max-width: 820px) {
+  .nc-form {
+    grid-template-columns: 1fr;
+  }
+}
+/* ---------- Celular: etapas empilhadas, leads em fila horizontal ---------- */
+@media (max-width: 820px) {
+  .crm-filtros {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .crm-filtros input[type="search"] {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+
+  .crm-filtros select {
+    width: 100%;
+    min-width: 0;
+    font-size: 14px;
+  }
+
+  .crm-filtros #crm-limpar-filtros {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+
+  .quadro {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    overflow-x: visible;
+    padding-bottom: 0;
+    scroll-snap-type: none;
+  }
+
+  .coluna {
+    flex: none;
+    width: 100%;
+    min-height: 0;
+  }
+
+  .coluna-corpo {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    scrollbar-color: var(--borda) transparent;
+  }
+
+  .coluna-corpo > .lead-card {
+    flex: 0 0 min(320px, 80vw);
+    scroll-snap-align: start;
+  }
+
+  .coluna-corpo .canais {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .coluna-vazia {
+    margin: 6px 0;
+    text-align: left;
+  }
+}
+/* ---------- Coluna de descartados e motivo nos cards ---------- */
+.lead-motivo {
+  margin: 0;
+  color: var(--texto-2);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.coluna-descartado .contador {
+  color: var(--texto-2);
+}
+
+.coluna-descartado .lead-card::before {
+  background: var(--borda);
+}
+/* ---------- Redesign Parte 3: cartões, campos e janelas ---------- */
+.coluna.sobre {
+  border-color: var(--destaque);
+  background: var(--destaque-suave);
+}
+
+.contador {
+  color: var(--destaque);
+}
+
+.lead-card {
+  border-radius: 16px;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+
+.lead-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--destaque-brilho);
+  box-shadow: var(--sombra);
+}
+
+.avatar {
+  background: var(--destaque-suave);
+  color: var(--destaque);
+}
+
+.canal {
+  border-radius: 10px;
+  color: var(--destaque);
+}
+
+.canal-whats {
+  color: var(--bom);
+}
+
+.canal-insta {
+  color: #e0559a;
+}
+
+.det-destaque {
+  color: var(--destaque);
+}
+
+.det-item.det-nota {
+  border-color: var(--destaque-brilho);
+}
+
+/* campos (agora com seleção também) e anel de foco na cor de destaque */
+.campo input,
+.campo select,
+.campo textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  background: var(--fundo);
+  color: var(--texto);
+  font: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus,
+.det-input:focus,
+.crm-filtros input:focus,
+.crm-filtros select:focus,
+.mover:focus {
+  outline: none;
+  border-color: var(--destaque);
+  box-shadow: 0 0 0 3px var(--destaque-suave);
+}
+
+dialog {
+  padding: 26px;
+  border-radius: 22px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+/* ---------- Follow-up: barra da coluna e botões do painel ---------- */
+.coluna-acao {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  background: var(--card-2);
+}
+
+.coluna-acao-info {
+  color: var(--texto-2);
+  font-size: 12px;
+}
+
+.coluna-acao .botao-sec {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.followup-botoes {
+  display: flex;
+  gap: 8px;
+}
+/* ---------- Barra de rolagem do topo do quadro ---------- */
+.quadro-barra {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin-bottom: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: var(--fundo);
+  scrollbar-width: thin;
+  scrollbar-color: var(--borda) transparent;
+}
+
+.quadro-barra-fio {
+  height: 1px;
+}
+
+/* no celular as etapas ficam empilhadas, então não existe rolagem para o lado */
+@media (max-width: 820px) {
+  .quadro-barra {
+    display: none;
+  }
+}
+/* ---------- Entrada dos cards ao rolar ---------- */
+.lead-card.revelar:not(.visivel) {
+  opacity: 0;
+}
+
+.lead-card.visivel {
+  animation: card-entra 1.45s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+@keyframes card-entra {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lead-card.revelar:not(.visivel) {
+    opacity: 1;
+  }
+
+  .lead-card.visivel {
+    animation: none;
+  }
+}
+/* ---------- Esconde a barra de rolagem de baixo (a de cima faz o trabalho) ---------- */
+.quadro {
+  scrollbar-width: none;
+}
+
+.quadro::-webkit-scrollbar {
+  display: none;
+}

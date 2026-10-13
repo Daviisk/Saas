@@ -1,0 +1,83 @@
+.cronometro {
+  display: grid;
+  gap: 12px;
+  margin-top: auto;
+  padding: 14px;
+  background: var(--card-2);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+}
+
+.cronometro [hidden] {
+  display: none !important;
+}
+
+.cronometro-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+}
+
+.cronometro-estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cronometro-estado::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--texto-2);
+}
+
+.cronometro[data-estado="rodando"] .cronometro-estado {
+  color: var(--destaque);
+  font-weight: 700;
+}
+
+.cronometro[data-estado="rodando"] .cronometro-estado::before {
+  background: var(--destaque);
+  box-shadow: 0 0 8px var(--destaque-brilho);
+  animation: cron-pulso 1.6s ease-in-out infinite;
+}
+
+.cronometro-tempo {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cronometro-botoes {
+  display: grid;
+  gap: 8px;
+}
+
+.cronometro-botoes button {
+  width: 100%;
+  justify-content: center;
+}
+
+.cronometro-aviso {
+  margin: 0;
+  font-size: 12px;
+  color: var(--texto-2);
+}
+
+@keyframes cron-pulso {
+  50% { opacity: 0.35; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cronometro[data-estado="rodando"] .cronometro-estado::before {
+    animation: none;
+  }
+}

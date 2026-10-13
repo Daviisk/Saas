@@ -1,0 +1,159 @@
+.filtros-copies {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+.filtros-copies select,
+.form-copy select {
+  width: 100%;
+  font: inherit;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.5rem;
+}
+:root[data-theme="dark"] .filtros-copies select,
+:root[data-theme="dark"] .form-copy select { color-scheme: dark; }
+:root[data-theme="light"] .filtros-copies select,
+:root[data-theme="light"] .form-copy select { color-scheme: light; }
+
+.grade-copies {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+.copy-item {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+.copy-previa {
+  margin: 0;
+  white-space: pre-line;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  opacity: 0.85;
+}
+.copy-item .dialog-acoes {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+#copies-mais {
+  margin: 1rem auto 0;
+  display: block;
+}
+
+#dlg-copy {
+  width: min(720px, 94vw);
+}
+.form-copy textarea {
+  width: 100%;
+  font: inherit;
+  resize: vertical;
+}
+/* ---------- Copies: campo de situação não pode ficar espremido ---------- */
+#dlg-copy .campos-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ---------- Celular: blocos e janela menores ---------- */
+@media (max-width: 820px) {
+  .grade-copies > * {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .grade-copies h3 {
+    font-size: 14px;
+  }
+
+  .grade-copies p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .grade-copies .selo {
+    padding: 1px 7px;
+    font-size: 10px;
+  }
+
+  .grade-copies button {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  #dlg-copy {
+    max-height: 92vh;
+    max-height: 92dvh;
+    padding: 16px;
+    overflow-y: auto;
+  }
+
+  #dlg-copy h2 {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  #dlg-copy .campos-2 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  #dlg-copy .campo {
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+
+  #dlg-copy .campo input,
+  #dlg-copy .campo select,
+  #dlg-copy .campo textarea {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  #dlg-copy textarea {
+    height: 160px;
+  }
+
+  #dlg-copy .dica {
+    font-size: 11px;
+  }
+
+  #dlg-copy .dialog-acoes button {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}
+/* ---------- Redesign Parte 4: Copies ---------- */
+.filtros-copies {
+  padding: 18px 22px;
+}
+
+.filtros-copies select,
+.form-copy select {
+  border-radius: var(--raio-sm);
+}
+
+.copy-item {
+  gap: 12px;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.copy-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--destaque-brilho);
+}
+
+.copy-previa {
+  color: var(--texto-2);
+  opacity: 1;
+  line-height: 1.55;
+}
+
+.form-copy textarea {
+  line-height: 1.55;
+}

@@ -1,0 +1,56 @@
+.dados-bloco {
+  display: grid;
+  gap: 1rem;
+}
+.dados-form {
+  display: grid;
+  gap: 1rem;
+}
+.dados-form input[name="pasta"] {
+  width: 100%;
+}
+.dados-bloco h3 {
+  margin: 0;
+}
+.dados-lista {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.25rem;
+  font-variant-numeric: tabular-nums;
+}
+.dados-exportar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.dados-bloco .dica-restaurar {
+  margin: 0;
+  font-size: 0.9em;
+  opacity: 0.85;
+}
+/* ---------- Redesign Parte 4: Dados e backup ---------- */
+.dados-bloco {
+  gap: 16px;
+}
+
+.dados-bloco h3 {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+}
+
+.dados-lista li::marker {
+  color: var(--destaque);
+}
+
+.dados-bloco .dica-restaurar {
+  color: var(--texto-2);
+  opacity: 1;
+}
+
+.dados-exportar .botao-sec {
+  flex: 1 1 180px;
+}
