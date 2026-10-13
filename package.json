@@ -1,0 +1,19 @@
+{
+  "name": "leads-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Plataforma pessoal de leads, CRM e controle do fluxo de prospecção",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "helmet": "^8.3.0"
+  }
+}
