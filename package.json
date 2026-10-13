@@ -6,7 +6,8 @@
   "description": "Plataforma pessoal de leads, CRM e controle do fluxo de prospecção",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "build": "mkdir -p public && cp index.html *.css app.js api.js dom.js tema.js destaque.js crm.js abordagem.js lead-detalhe.js mapa.js buscar.js fechamento.js dados.js descartados.js disciplina-resumo.js disciplina-metas.js public/"
   },
   "engines": {
     "node": ">=22.13.0"

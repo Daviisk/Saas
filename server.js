@@ -3,22 +3,7 @@ import { fileURLToPath } from 'node:url';
 import express from 'express';
 import helmet from 'helmet';
 import { config } from './config.js';
-import { db, dbPath, fechar } from './db.js';
 import { ETAPAS, ETAPA_DESCARTADO } from './constants.js';
-import { rotasLeads } from './rotas-leads.js';
-import { rotasFechamentos } from './rotas-fechamentos.js';
-import { rotasNichos } from './rotas-nichos.js';
-import { rotasCotas } from './rotas-cotas.js';
-import { rotasBuscar } from './rotas-buscar.js';
-import { rotasConfiguracoes } from './rotas-configuracoes.js';
-import { rotasCopies } from './rotas-copies.js';
-import { rotasPainel } from './rotas-painel.js';
-import { rotasDisciplina } from './rotas-disciplina.js';
-import { rotasCronometro } from './rotas-cronometro.js';
-import { rotasDados } from './rotas-dados.js';
-import { rotasFinanceiro } from './rotas-financeiro.js';
-import { rotasProjetos } from './rotas-projetos.js'; 
-import { iniciarBackupAutomatico } from './backup.js';
 
 const raiz = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -47,6 +32,31 @@ app.use(
 );
 
 app.use(express.json({ limit: '1mb' }));
+
+// SQLite local precisa de disco persistente; a Vercel publica a interface até o banco ser conectado.
+let db, dbPath, fechar;
+if (process.env.VERCEL) {
+  app.use('/api', (_req, res) => res.status(503).json({
+    erro: 'Banco persistente ainda não configurado para esta hospedagem.',
+  }));
+} else {
+  ({ db, dbPath, fechar } = await import('./db.js'));
+  const { rotasLeads } = await import('./rotas-leads.js');
+  const { rotasFechamentos } = await import('./rotas-fechamentos.js');
+  const { rotasNichos } = await import('./rotas-nichos.js');
+  const { rotasCotas } = await import('./rotas-cotas.js');
+  const { rotasBuscar } = await import('./rotas-buscar.js');
+  const { rotasConfiguracoes } = await import('./rotas-configuracoes.js');
+  const { rotasCopies } = await import('./rotas-copies.js');
+  const { rotasPainel } = await import('./rotas-painel.js');
+  const { rotasDisciplina } = await import('./rotas-disciplina.js');
+  const { rotasCronometro } = await import('./rotas-cronometro.js');
+  const { rotasDados } = await import('./rotas-dados.js');
+  const { rotasFinanceiro } = await import('./rotas-financeiro.js');
+  const { rotasProjetos } = await import('./rotas-projetos.js');
+  const { iniciarBackupAutomatico } = await import('./backup.js');
+  iniciarBackupAutomatico();
+
 
 app.get('/api/saude', (_req, res) => {
   const tabelas = db
@@ -79,6 +89,7 @@ app.use('/api', rotasCronometro);
 app.use('/api', rotasDados);
 app.use('/api', rotasFinanceiro);
 app.use('/api', rotasProjetos);
+}
 // Somente arquivos da interface são públicos; o backend permanece privado.
 const arquivosPublicos = new Set([
   'index.html', 'app.js', 'api.js', 'dom.js', 'tema.js', 'destaque.js',
@@ -105,12 +116,14 @@ app.use((err, _req, res, _next) => {
   res.status(status).json({ erro: err instanceof SyntaxError ? 'JSON inválido' : err.message });
 });
 
+export default app;
+
+if (!process.env.VERCEL) {
 const servidor = app.listen(config.port, config.host, () => {
   console.log(`Servidor em http://${config.host}:${config.port}`);
   console.log(`Banco de dados: ${dbPath}`);
 });
 
-iniciarBackupAutomatico();
 function encerrar() {
   servidor.close(() => {
     fechar();
@@ -119,3 +132,5 @@ function encerrar() {
 }
 process.on('SIGINT', encerrar);
 process.on('SIGTERM', encerrar);
+
+}
